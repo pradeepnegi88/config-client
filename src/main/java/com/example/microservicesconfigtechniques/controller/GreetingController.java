@@ -3,6 +3,7 @@ package com.example.microservicesconfigtechniques.controller;
 import com.example.microservicesconfigtechniques.config.DatabaseConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,9 @@ public class GreetingController {
     private Map<String, String> map;
 
     @Autowired
+    private Environment environment;
+
+    @Autowired
     private DatabaseConfiguration databaseConfiguration;
 
     @GetMapping(path = "/greeting")
@@ -34,5 +38,10 @@ public class GreetingController {
     @GetMapping(path = "/db")
     public String getDb() {
         return databaseConfiguration.toString();
+    }
+
+    @GetMapping(path = "/env")
+    public String getEnvironment() {
+        return environment.toString();
     }
 }
