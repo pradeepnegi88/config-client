@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class GreetingController {
@@ -15,9 +16,11 @@ public class GreetingController {
     private String staticMessage;
     @Value("${app.list}")
     private List<String> stringList;
+    @Value("#{${app.keyvalue}}")
+    private Map<String, String> map;
 
     @GetMapping(path = "/greeting")
     public String getGretting() {
-        return greetingMessage+ staticMessage+ stringList;
+        return greetingMessage + staticMessage + stringList+ map;
     }
 }
