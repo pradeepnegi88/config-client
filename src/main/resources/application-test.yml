@@ -1,0 +1,12 @@
+app:
+    greeting: Hello
+    message: ${app.greeting} Test Test
+    list: test1,test2,test3
+    keyvalue : "{test:'test',1:'2'} "
+
+
+db:
+   name: testdatabasename
+   host: "test 122.22.2.20"
+   port: 3333
+management.endpoints.web.exposure.include: "*"
