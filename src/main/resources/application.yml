@@ -13,3 +13,6 @@ management.endpoints.web.exposure.include: "*"
 spring:
   profiles:
     active: test
+  cloud:
+    config:
+      uri: http://localhost:8888
